@@ -10,5 +10,5 @@ CELA ASR solutions based on Deepspeech
 >GPU-version: pip install deepspeech-gpu
 
 3. Download pretrained weights:
->wget https://github.com/mozilla/DeepSpeech/releases/download/v0.8.1/deepspeech-0.8.1-models.pbmm
+>wget https://github.com/mozilla/DeepSpeech/releases/download/v0.8.1/deepspeech-0.8.1-models.pbmm   
 >wget https://github.com/mozilla/DeepSpeech/releases/download/v0.8.1/deepspeech-0.8.1-models.scorer
