@@ -14,6 +14,11 @@ CELA ASR solutions based on Deepspeech
 >wget https://github.com/mozilla/DeepSpeech/releases/download/v0.8.1/deepspeech-0.8.1-models.scorer
 
 4. Run offline version:
-
+>cd offline  
+>pip install -r requirements.txt  
+For linux:
+>sudo apt install portaudio19-dev
+For mac:
+>brew install portaudio
 
 5. Run online version:
