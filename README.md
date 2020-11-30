@@ -26,9 +26,9 @@ If you want to run the asr algorithm in a streaming audio scenario with your mic
 >python audio_streaming.py -m deepspeech-0.8.1-models.pbmm -s deepspeech-0.8.1-models.scorer -v 1/2  
 
 5. Run audio_sr solutions:   
->cd audio_solution_sr
->pip install SpeechRecognition pyaudio 
->python audio_streaming_sr.py  
+>cd audio_solution_sr         
+>pip install SpeechRecognition pyaudio     
+>python audio_streaming_sr.py    
 
 6. Run video solutions:  
 >cd video solutions  
