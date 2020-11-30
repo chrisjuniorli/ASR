@@ -23,7 +23,7 @@ For mac:
 If you want to run the asr algorithm on the whole audio clip:  
 >python audio_streaming.py -f wav_file_here.wav -m deepspeech-0.8.1-models.pbmm -s deepspeech-0.8.1-models.scorer  
 If you want to run the asr algorithm in a streaming audio scenario with your microphone:   
->python audio_streaming.py -m deepspeech-0.8.1-models.pbmm -s deepspeech-0.8.1-models.scorer  
+>python audio_streaming.py -m deepspeech-0.8.1-models.pbmm -s deepspeech-0.8.1-models.scorer -v 1/2  
 
 5. Run video solutions:  
 >cd video solutions  
