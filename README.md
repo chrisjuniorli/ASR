@@ -25,7 +25,12 @@ If you want to run the asr algorithm on the whole audio clip:
 If you want to run the asr algorithm in a streaming audio scenario with your microphone:   
 >python audio_streaming.py -m deepspeech-0.8.1-models.pbmm -s deepspeech-0.8.1-models.scorer -v 1/2  
 
-5. Run video solutions:  
+5. Run audio_sr solutions:   
+>cd audio_solution_sr
+>pip install SpeechRecognition pyaudio 
+>python audio_streaming_sr.py  
+
+6. Run video solutions:  
 >cd video solutions  
 >pip install -r requirements.txt  
 >conda install -c conda-forge ffmpeg   
