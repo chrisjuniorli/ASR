@@ -22,7 +22,7 @@ For mac:
 >brew install portaudio  
 If you want to run the asr algorithm on the whole audio clip:  
 >python audio_streaming.py -f wav_file_here.wav -m deepspeech-0.8.1-models.pbmm -s deepspeech-0.8.1-models.scorer  
-If you want to run the asr algorithm in a real-time microphone scenario:  
+If you want to run the asr algorithm in a streaming audio scenario:  
 >python audio_streaming.py -m deepspeech-0.8.1-models.pbmm -s deepspeech-0.8.1-models.scorer  
 
 5. Run video solutions:  
@@ -31,3 +31,5 @@ If you want to run the asr algorithm in a real-time microphone scenario:
 >conda install -c conda-forge ffmpeg   
 If you want to run the asr algorithm on the whole video clip:  
 >python video_offline.py -f video_file_here.mp4 -m deepspeech-0.8.1-models.pbmm -s deepspeech-0.8.1-models.scorer   
+If you want to run the asr algorithm in a streaming video scenario:  
+Still Under Construction  
