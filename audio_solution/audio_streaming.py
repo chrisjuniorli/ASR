@@ -129,6 +129,7 @@ class VADAudio(Audio):
         triggered = False
 
         for frame in frames:
+            #pdb.set_trace()
             if len(frame) < 640:
                 return
 
@@ -194,6 +195,7 @@ def main(ARGS):
                 vad_audio.write_wav(os.path.join(ARGS.savewav, datetime.now().strftime("savewav_%Y-%m-%d_%H-%M-%S_%f.wav")), wav_data)
                 wav_data = bytearray()
             text = stream_context.finishStream()
+            #pdb.set_trace()
             print("Recognized: %s" % text)
             if ARGS.keyboard:
                 from pyautogui import typewrite
