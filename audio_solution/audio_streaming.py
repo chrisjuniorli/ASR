@@ -183,6 +183,7 @@ def main(ARGS):
     stream_context = model.createStream()
     wav_data = bytearray()
     for frame in frames:
+        #pdb.set_trace()
         if frame is not None:
             if spinner: spinner.start()
             logging.debug("streaming frame")

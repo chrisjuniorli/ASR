@@ -186,6 +186,7 @@ def main(ARGS):
         spinner = Halo(spinner='line')
     stream_context = model.createStream()
     wav_data = bytearray()
+    
     for frame in frames:
         if frame is not None:
             if spinner: spinner.start()

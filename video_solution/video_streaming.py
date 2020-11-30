@@ -9,7 +9,8 @@ import webrtcvad
 from halo import Halo
 from scipy import signal
 import pdb
-import subprocess
+#import subprocess
+import cv2
 
 logging.basicConfig(level=20)
 
@@ -167,25 +168,21 @@ def main(ARGS):
     if ARGS.scorer:
         logging.info("ARGS.scorer: %s", ARGS.scorer)
         model.enableExternalScorer(ARGS.scorer)
-    
-    audio_file = ARGS.file[:-4] + '.wav'
-    command = "ffmpeg -i {} -ab 160k -ac 1 -ar 16000 -vn {}".format(ARGS.file, audio_file)
-    subprocess.call(command, shell=True)
-    #audio_file = 
+
     # Start audio with VAD
     vad_audio = VADAudio(aggressiveness=ARGS.vad_aggressiveness,
                          device=ARGS.device,
-                         input_rate=ARGS.rate,
-                         file=audio_file)
+                         input_rate=ARGS.rate)
+
     print("Listening (ctrl-C to exit)...")
     frames = vad_audio.vad_collector()
 
-    # Stream from microphone to DeepSpeech using VAD
     spinner = None
     if not ARGS.nospinner:
         spinner = Halo(spinner='line')
     stream_context = model.createStream()
     wav_data = bytearray()
+    
     for frame in frames:
         if frame is not None:
             if spinner: spinner.start()
@@ -205,6 +202,23 @@ def main(ARGS):
                 typewrite(text)
             stream_context = model.createStream()
 
+    cap = cv2.VideoCapture(0)
+
+    while True:
+        _, frame_cam = cap.read()
+        #bm = ana.detect_face(frame)
+
+        cv2.imshow("Video", frame_cam)
+        
+        key = cv2.waitKey(1)
+        # Exit if 'q' is pressed
+        if key == ord('q'):
+            break
+        # Stream from microphone to DeepSpeech using VAD
+    cap.release()
+    cv2.destroyAllWindows()
+
+
 if __name__ == '__main__':
     DEFAULT_SAMPLE_RATE = 16000
 
@@ -219,7 +233,6 @@ if __name__ == '__main__':
                         help="Save .wav files of utterences to given directory")
     parser.add_argument('-f', '--file',
                         help="Read from .video file instead of camera")
-
     parser.add_argument('-m', '--model', required=True,
                         help="Path to the model (protocol buffer binary file, or entire directory containing all standard-named files for model)")
     parser.add_argument('-s', '--scorer',
