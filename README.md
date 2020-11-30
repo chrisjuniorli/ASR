@@ -30,4 +30,4 @@ If you want to run the asr algorithm in a real-time microphone scenario:
 >pip install -r requirements.txt  
 >conda install -c conda-forge ffmpeg   
 If you want to run the asr algorithm on the whole video clip:  
->python video_streaming.py -f video_file_here.mp4 -m deepspeech-0.8.1-models.pbmm -s deepspeech-0.8.1-models.scorer   
+>python video_offline.py -f video_file_here.mp4 -m deepspeech-0.8.1-models.pbmm -s deepspeech-0.8.1-models.scorer   
