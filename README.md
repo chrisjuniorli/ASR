@@ -1,5 +1,5 @@
 # ASR
-CELA ASR solutions based on Deepspeech
+CELA ASR solutions based on Deepspeech and Google Speech Recognition.    
 
 ## Installation
 1. Creat python env:
